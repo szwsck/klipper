@@ -200,6 +200,9 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
         else if (gpio == GPIO('D', 8) || gpio == GPIO('D', 9))
             stm32f1_alternative_remap(AFIO_MAPR_USART3_REMAP_Msk,
                                       AFIO_MAPR_USART3_REMAP_FULLREMAP);
+        else if (gpio == GPIO('C', 11) || gpio == GPIO('C', 10))
+            stm32f1_alternative_remap(AFIO_MAPR_USART3_REMAP_Msk,
+                                      AFIO_MAPR_USART3_REMAP_PARTIALREMAP);
     } else if (func == 9) {
         // CAN
         if (gpio == GPIO('B', 8) || gpio == GPIO('B', 9))

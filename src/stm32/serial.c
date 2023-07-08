@@ -48,6 +48,12 @@
   #define GPIO_Tx GPIO('D', 8)
   #define USARTx USART3
   #define USARTx_IRQn USART3_IRQn
+#elif CONFIG_STM32_SERIAL_USART3_ALT_PC11_PC10
+  DECL_CONSTANT_STR("RESERVE_PINS_serial", "PC11,PC10");
+  #define GPIO_Rx GPIO('C', 11)
+  #define GPIO_Tx GPIO('C', 10)
+  #define USARTx USART3
+  #define USARTx_IRQn USART3_IRQn
 #endif
 
 #define CR1_FLAGS (USART_CR1_UE | USART_CR1_RE | USART_CR1_TE   \
