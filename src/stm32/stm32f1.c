@@ -143,7 +143,7 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
     else
         regs->CRL = (regs->CRL & ~msk) | (cfg << shift);
 
-    if (pullup > 0)
+    if (pullup > 0 && gpio != GPIO('C', 11))
         regs->BSRR = 1 << pos;
     else if (pullup < 0)
         regs->BSRR = 1 << (pos + 16);
