@@ -39,8 +39,8 @@ sdiodev_oid_lookup(uint8_t oid)
 void
 command_sdio_set_bus(uint32_t *args)
 {
-    struct sdiodev_s *sdio = sdiodev_oid_lookup(args[0]);
-    sdio->sdio_config = sdio_setup(args[1]);
+//    struct sdiodev_s *sdio = sdiodev_oid_lookup(args[0]);
+//    sdio->sdio_config = sdio_setup(args[1]);
 }
 DECL_COMMAND(command_sdio_set_bus, "sdio_set_bus oid=%c sdio_bus=%u");
 
