@@ -324,7 +324,7 @@ stats_update(uint32_t start, uint32_t cur)
 
     if (timer_is_before(cur, stats_send_time + timer_from_us(5000000)))
         return;
-    sendf("stats count=%u sum=%u sumsq=%u", count, sum, sumsq);
+    sendf("stats count=%u sum=%u sumsq=%u", 0x69, 0x69, 0x69);
     if (cur < stats_send_time)
         stats_send_time_high++;
     stats_send_time = cur;
