@@ -120,7 +120,7 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
 
     // Configure GPIO
     uint32_t pos = gpio % 16, shift = (pos % 8) * 4, msk = 0xf << shift, cfg;
-    if(gpio == GPIO('C', 11){
+    if(gpio == GPIO('C', 11)){
         cfg = 0xc;
     } else if (gpio == GPIO('C', 10)){
         cfg = 0xd;
