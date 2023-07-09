@@ -120,7 +120,11 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
 
     // Configure GPIO
     uint32_t pos = gpio % 16, shift = (pos % 8) * 4, msk = 0xf << shift, cfg;
-    if (mode == GPIO_INPUT) {
+    if(gpio == GPIO('C', 11){
+        cfg = 0xc;
+    } else if (gpio == GPIO('C', 10)){
+        cfg = 0xd;
+    } else if (mode == GPIO_INPUT) {
         cfg = pullup ? 0x8 : 0x4;
     } else if (mode == GPIO_OUTPUT) {
         cfg = STM_OSPEED;
@@ -143,7 +147,7 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
     else
         regs->CRL = (regs->CRL & ~msk) | (cfg << shift);
 
-    if (pullup > 0 && gpio != GPIO('C', 11))
+    if (pullup > 0)
         regs->BSRR = 1 << pos;
     else if (pullup < 0)
         regs->BSRR = 1 << (pos + 16);
