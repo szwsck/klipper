@@ -156,6 +156,13 @@ gpio_peripheral(uint32_t gpio, uint32_t mode, int pullup)
     // STM32F1 remaps functions to pins in a very different
     // way from other STM32s.
     // Code below is emulating a few mappings to work like an STM32F4
+
+    if (gpio == GPIO('C', 11) || gpio == GPIO('C', 10)) {
+        stm32f1_alternative_remap(AFIO_MAPR_USART3_REMAP_Msk,
+                                  AFIO_MAPR_USART3_REMAP_PARTIALREMAP);
+        return;
+    }
+
     uint32_t func = (mode >> 4) & 0xf;
     if (func == 1) {
         // TIM2
